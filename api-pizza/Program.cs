@@ -1,6 +1,9 @@
 using Microsoft.AspNetCore.OData;
 using Microsoft.Extensions.DependencyInjection;
 using AutoMapper;
+using api_pizza.Services.Mapper;
+using api_pizza.Services.Pizza_service;
+
 namespace api_pizza
 {
     public class Program
@@ -15,7 +18,7 @@ namespace api_pizza
             // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
             builder.Services.AddEndpointsApiExplorer();
             builder.Services.AddSwaggerGen();
-            builder.Services.AddAutoMapper();
+            builder.Services.AddServiceLayerServices();
 
 
             builder.Services.AddControllers().AddOData(options =>

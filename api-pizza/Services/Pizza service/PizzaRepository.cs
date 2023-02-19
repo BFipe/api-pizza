@@ -17,28 +17,32 @@ namespace api_pizza.Services.Pizza_service
             _mapper = mapper ?? throw new ArgumentNullException(nameof(mapper));
         }
 
-        public async Task<IEnumerable<Pizza>> GetAsync(QueryParameters queryParameters)
+        public async Task<IEnumerable<GetPizzaDto>> GetAsync(QueryParameters queryParameters)
         {
-            return await _catalogContext
+            var getPizzas = await _catalogContext
                .Pizzas
                .Find(q => true)
                .Skip(queryParameters.Page * queryParameters.ContentPerPage)
                .Limit(queryParameters.ContentPerPage)
                .ToListAsync();
+
+            return _mapper.Map<List<GetPizzaDto>>(getPizzas);
         }
 
-        public async Task<bool> UpdateAsync(Pizza entity)
+        public async Task<bool> UpdateAsync(UpdatePizzaDto entity)
         {
+            var updatePizza = _mapper.Map<Pizza>(entity);
             var result = await _catalogContext
                .Pizzas
-               .ReplaceOneAsync(filter: q => q.Id == entity.Id, replacement: entity);
+               .ReplaceOneAsync(filter: q => q.Id == updatePizza.Id, replacement: updatePizza);
 
             return result.IsAcknowledged && result.ModifiedCount > 0;
         }
 
-        public async Task<bool> CreateAsync(Pizza entity)
+        public async Task<bool> CreateAsync(CreatePizzaDto entity)
         {
-            Task task = _catalogContext.Pizzas.InsertOneAsync(entity);
+            var createPizza = _mapper.Map<Pizza>(entity);
+            Task task = _catalogContext.Pizzas.InsertOneAsync(createPizza);
             await task;
             return task.IsCompleted;
         }
