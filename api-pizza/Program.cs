@@ -1,3 +1,6 @@
+using Microsoft.AspNetCore.OData;
+using Microsoft.Extensions.DependencyInjection;
+using AutoMapper;
 namespace api_pizza
 {
     public class Program
@@ -12,6 +15,13 @@ namespace api_pizza
             // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
             builder.Services.AddEndpointsApiExplorer();
             builder.Services.AddSwaggerGen();
+            builder.Services.AddAutoMapper();
+
+
+            builder.Services.AddControllers().AddOData(options =>
+            {
+                options.Select().Filter().OrderBy();
+            });
 
             var app = builder.Build();
 
