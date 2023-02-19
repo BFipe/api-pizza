@@ -61,7 +61,7 @@ namespace api_pizza.Controllers
         }
 
         [HttpDelete]
-        public async Task<IActionResult> DeletePizza([FromBody] string id)
+        public async Task<IActionResult> DeletePizza([FromQuery] string id)
         {
             var result = await _pizzaRepository.DeleteAsync(id);
             if (result)
