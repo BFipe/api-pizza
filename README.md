@@ -4,9 +4,17 @@
 2. Open terminal in this folder (Type cmd or open with VSCode and press ctrl + ~)
 3. Type:
 	
-	for the first time or when pulled new version: docker-compose up -d --build
+	For the first time or when pulled new version:
 	
-	every other time after shutdown: docker-compose up -d
+		docker-compose up -d --build
+	
+	Every other time after shutdown:
+	
+		docker-compose up -d
+	
+	To shutdown containers:
+	
+		docker-compose down
  
 Port for api: http://localhost:5000/
 
