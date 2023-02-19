@@ -22,7 +22,7 @@ namespace api_pizza.Controllers
 
         [HttpGet]
         [EnableQuery]
-        public async Task<ActionResult<IEnumerable<GetPizzaDto>>> GetPizzas([FromBody] QueryParameters? queryParameters)
+        public async Task<ActionResult<IEnumerable<GetPizzaDto>>> GetPizzas([FromQuery] QueryParameters? queryParameters)
         {
             var result = await _pizzaRepository.GetAsync(queryParameters ?? new QueryParameters());
             return Ok(result);
