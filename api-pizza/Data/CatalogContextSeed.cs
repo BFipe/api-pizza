@@ -20,6 +20,7 @@ namespace api_pizza.Data
             {
                new Pizza()
                {
+                   Id = "602d2149e773f2a3990b47f1",
                    Title =  "Barbecue chicken",
                    Img = "https://dodopizza-a.akamaihd.net/static/Img/Products/45cc8ffb190c4a28aaf1863a67f675c7_584x584.png",
                    ParentId=4,
@@ -32,6 +33,7 @@ namespace api_pizza.Data
 
                new Pizza()
                {
+                   Id = "602d2149e773f2a3990b47f2",
                    Title =  "Burger-pizza",
                    Img = "https://dodopizza-a.akamaihd.net/static/Img/Products/1a9252b622b6494ebde59163374402a9_584x584.webp",
                    ParentId=2,
@@ -44,6 +46,7 @@ namespace api_pizza.Data
                 
                 new Pizza()
                {
+                   Id = "602d2149e773f2a3990b47f3",
                    Title =  "Margarita",
                    Img = "https://dodopizza-a.akamaihd.net/static/Img/Products/748949429e25404ea10aab002c910d84_584x584.png",
                    ParentId=5,
