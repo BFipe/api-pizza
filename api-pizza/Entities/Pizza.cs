@@ -1,7 +1,12 @@
-﻿namespace api_pizza.Entities
+﻿using MongoDB.Bson;
+using MongoDB.Bson.Serialization.Attributes;
+
+namespace api_pizza.Entities
 {
     public class Pizza
     {
+        [BsonId]
+        [BsonRepresentation(BsonType.ObjectId)]
         public string Id { get; set; }
         public string Title { get; set; }
         public string Img { get; set; }
